@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>API Fetch Example</title>
+</head>
+<body>
+  <h1>API Fetch Example</h1>
+  <div id="output"></div>
+
+  <script>
+   async function fetchData() {
+  let headersList = {
+    "Accept": "*/*",
+    "User-Agent": "Thunder Client (https://www.thunderclient.com)"
+  };
+
+  try {
+    let response = await fetch("https://stortbook.000webhostapp.com/bookstort/get_All_prodict.php", { 
+      method: "POST",
+      headers: headersList
+    });
+
+    let data = await response.text();
+    console.log(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+fetchData();
+
+  </script>
+</body>
+</html>
